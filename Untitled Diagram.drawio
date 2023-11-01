@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-11-01T02:23:45.172Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="NHITAhrS62ql0NNqAPZS" version="22.0.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-01T02:29:46.704Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="kI_owvDSWXJ0gfb-iqbf" version="22.0.8" type="github">
   <diagram name="Page-1" id="-pRsD8GFlhPTs_EKf3yO">
-    <mxGraphModel dx="1034" dy="456" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1034" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -44,6 +44,9 @@
         </mxCell>
         <mxCell id="x1Roc3TPMZ5MIqedMHNz-14" value="Keep Going" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
           <mxGeometry x="155" y="280" width="85" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x1Roc3TPMZ5MIqedMHNz-17" value="press to randomize coin selection" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="562.5" y="200" width="60" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
