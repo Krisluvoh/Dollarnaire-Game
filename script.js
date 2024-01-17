@@ -1,125 +1,109 @@
-const startButton = document.getElementById('startButton');
-const moneyArray=[1,5,10,25];
-const player1TotalEl = document.getElementById('player1Total')
-let playerArray=[];
-let player1score = 0;
+let player1Total = 0;
+let player2Total = 0;
+let currentPlayer = 1;
 
-function makePlayerArray(){
-    for (let i=0;i<moneyArray.length;i++){
-        let num=Math.floor(Math.random()*4);
-        playerArray.push(moneyArray[num]);
+// Reset function
+const reset = () => {
+    player1Total = 0;
+    player2Total = 0;
+    currentPlayer = 1;
+
+    const player1Output = document.getElementById('player1Total');
+    const player2Output = document.getElementById('player2Total');
+
+    // Reset player totals
+    if (player1Output) {
+        player1Output.innerHTML = `Player 1 Total: $0.00`;
+        player1Output.classList.remove('winner');
     }
-    console.log(playerArray);
-    calculateScore() // call other funtion 'calculateScore'
-}
-//Function to calculate the score
 
-function calculateScore() {
-    for (let i = 0; i< playerArray.length; i++){
-        player1score += playerArray[i];
+    if (player2Output) {
+        player2Output.innerHTML = `Player 2 Total: $0.00`;
+        player2Output.classList.remove('winner');
+    }
+
+    // Enable the Start button
+    document.getElementById('startButton').disabled = false;
+};
+
+// Quit function
+const quit = () => {
+    // Reset both players' totals back to 0
+    player1Total = 0;
+    player2Total = 0;
+
+    const player1Output = document.getElementById('player1Total');
+    const player2Output = document.getElementById('player2Total');
+
+    // Reset player totals on the UI
+    if (player1Output) {
+        player1Output.innerHTML = `Player 1 Total: $0.00`;
+        player1Output.classList.remove('winner');
+    }
+
+    if (player2Output) {
+        player2Output.innerHTML = `Player 2 Total: $0.00`;
+        player2Output.classList.remove('winner');
+    }
+
+    // Enable the Start button
+    document.getElementById('startButton').disabled = false;
+
+    console.log('Quit function called');
+};
+
+// Play function
+const play = () => {
+    console.log('Play function called'); // Debugging log
+
+    const coinIncrements = [1, 5, 10, 25];
+    const randomCoin = coinIncrements[Math.floor(Math.random() * coinIncrements.length)];
+
+    const player1Output = document.getElementById('player1Total');
+    const player2Output = document.getElementById('player2Total');
+
+    if (currentPlayer === 1) {
+        player1Total += randomCoin;
+
+        if (player1Output) {
+            player1Output.innerHTML = `Player 1 Total: $${(player1Total / 100).toFixed(2)}`;
         }
-    console.log(player1score)
-    player1TotalEl.textContent = player1score;
 
-}
+        if (player1Total >= 100) {
+            if (player1Output) {
+                player1Output.classList.add('winner');
+                document.getElementById('startButton').disabled = true;
+                player1Output.innerHTML += " - Winner!";
+            }
+            return; // Exit the function when a winner is declared
+        }
 
-    //Function to check for a win
+        currentPlayer = 2;
+    } else {
+        player2Total += randomCoin;
 
-//     function checkWin(playerArray){
-//         const targetScore=100;
-//         const score=
-//         calculateScore(playerArray);
-//         if (score>=targetScore){
-//             return true;
-//         }
-// return false;
-//     }
+        if (player2Output) {
+            player2Output.innerHTML = `Player 2 Total: $${(player2Total / 100).toFixed(2)}`;
+        }
 
-    //Function to reset the game
+        if (player2Total >= 100) {
+            if (player2Output) {
+                player2Output.classList.add('winner');
+                document.getElementById('startButton').disabled = true;
+                player2Output.innerHTML += " - Winner!";
+            }
+            return; // Exit the function when a winner is declared
+        }
 
-    function resetGame(){
-        playerArray= [];
-        textOutput.textContent='Game reset. Start a new game!';
-        return playerArray;
+        currentPlayer = 1;
     }
+};
 
-    // const testArray=makePlayerArray();
-// console.log(testArray);
+// Event listener for the Start button
+document.getElementById('startButton').addEventListener('click', play);
 
+// Event listener for the Reset button
+document.getElementById('resetButton').addEventListener('click', reset);
 
-
-//const keepGoingButton=document.getElementById('keepGoingButton');
-//const stopButton=document.getElementById('stopButton');
-const textOutput = document.getElementById('textOutput');
-
-// const score = calculateScore(playerArray);
-// textOutput.textContent = `Current score: ${player1score}`;
-
-// const isWin=checkWin(playerArray);
-// if (isWin){
-//     textOutput.textContent='Congratulations!You are the winner! You are now a DOLLARNAIRE!!!';
-// }
-
-
-
-
-startButton.addEventListener('click', makePlayerArray);
-
-
-
-//keepGoingButton.addEventListener('click',()=>
-
-   // textOutput.textContent='Keep going button clicked';
-//});
-
-//stopButton.addEventListener('click',()=>
-//{
-  //  textOutput.textContent='Stop button clicked';
-//});
-
-// const quitButton=document.getElementById('quitButton');
-// quitButton.addEventListener('click',()=>
-// {
-//     const playerArray=[];
-//     const score=
-//     calculateScore(playerArray);
-//     textOutput.textContent=`Final score: ${score}`;
-// })
-
-//     const confirmation=confirm('Are you sure you want to quit?');
-//     if(confirmation){
-//         textOutput.textContent= `Quit button clicked. Quitting the game...`;
-//     }else{
-//         textOutput.textContent= `Quit button clicked. Resuming the game...`;
-//     }
-
-
-const resetButton=document.getElementById('resetButton');
-resetButton.addEventListener('click',resetGame);
-
-
-
-//     textOutput.textContent="Reset button clicked";
-
-
-//button.setAttribute('id','myButton');
-//button.textContent='Start','Stop', 'Quit';
-
-
-//const parentElement=document.getElementById('parentElement');
-
-//parentElement.appendChild(button);
-
-
-// class Player{
-//     constructor(){
-//         this.moneyArray=[1,5,10,25];
-//         this.playerArray=[];
-//     }
-
-//     createPlayerArray(){
-//         for (let i=0;i<this.moneyArray.length;i++){
-//                 this.playerArray.push(this.moneyArray[i]);
-//             }
-//             }
-//     }
+// Event listener for the Quit button
+document.getElementById('quitButton').addEventListener('click', quit);

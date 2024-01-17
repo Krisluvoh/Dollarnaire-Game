@@ -1,76 +1,37 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <header>Dollarnaire Game</header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dollarnaire</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <title>Create Button Element</title>
+<body>
+    <div>
+        <!-- Button Elements -->
+        <button id='startButton' style="background-color: darkseagreen;">Start</button>
+        <button id='resetButton' style="background-color: rgb(223, 249, 22);" onclick="reset()">Reset</button>
+        <button id='quitButton' style="background-color: rgb(250, 5, 5);" onclick="quit()">Quit</button>
+    </div>
 
-    
-    
-    <head>
-       
-    </head>
-    
-    <body>
-        <div>
-            <!--Button Element-->
-           
-            <button id='startButton'; style="background-color: darkseagreen;">Start</button>
-            <button id='resetButton'; style="background-color:rgb(223, 249, 22);">Reset</button>
-            <button id='quitButton'; style="background-color:rgb(250, 5, 5);">Quit</button>
-            
-            
+    <div id="textOutput"></div>
 
+    <div class="Player">
+        <div class="image">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.h4WkQs236T21Kgb7Yfw37wHaHA&pid=Api&P=0&h=220" alt="Player 1">
+            <p>Player 1 <span id="player1Coins">Player 1 Coins </span><span id="player1Total">Player 1 Total</span></p>
         </div>
-        <div id="textOutput">
 
-            
-
-        </div> 
-    
-        <div class="Player" >
-    
-            <div class="image"><img src="https://tse1.mm.bing.net/th?id=OIP.h4WkQs236T21Kgb7Yfw37wHaHA&pid=Api&P=0&h=220" alt="Player 1">
-                <p>Player 1 <span id="player1Coins">Player 1 Coins </span><span id="player1Total">Player 1 Total</span></p>
-            </div>
-            
-            <div class="image"><img src="https://tse4.mm.bing.net/th?id=OIP.0nvUbCrxSxWyrpXwSeaRhAHaGu&pid=Api&P=0&h=220" alt="Player 2">
-                <p>Player 2 <span id="player1Coins">Player 2 Coins </span><span id="player2Total">Player 2 Total</span></p>
-            </div>
-                    <h2>
-                        
-                    </h2>
-                </p>
-            </div>
+        <div class="image">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.0nvUbCrxSxWyrpXwSeaRhAHaGu&pid=Api&P=0&h=220" alt="Player 2">
+            <p>Player 2 <span id="player1Coins">Player 2 Coins </span><span id="player2Total">Player 2 Total</span></p>
         </div>
-       
-        
-    
-        <script src="script.js"></script>
+        <h2></h2>
+    </div>
 
+    <script src="script.js"></script>
+</body>
 
-        
-            
-    </body>
-    
-    <footer>
-        <p id="textOutput"></p>
-       
-    </footer>
-    
-    </html>
-
-
-
-
-
-
-
-
-
-
-
+</html>
